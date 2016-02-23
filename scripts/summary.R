@@ -8,7 +8,15 @@ data <- rename(data, operating_system = What.operating.system.do.you.typically.u
 
 info_function <- function(data) {
   ret <- list()
-  ret$length <- length(data)
-  # 
+  ret$Questions_Asked <- length(data)
+  ret$Number_Of_Students <- nrow(data)
+  Average_Countries_Visited <- summarise(data,
+                               Average = mean(How.many.countries.have.you.visited.in.your.life., na.rm = TRUE)
+  )
+  ret$Average_Countries_Visited <- Average_Countries_Visited
+  Mac_Users <- filter(data, operating_system == "Mac") 
+  ret$Mac_Users <- 39
+  Windows_Users <- filter(data, operating_system == "Windows")
+  ret$Windows_Users <- 40
   return(ret)
 }
