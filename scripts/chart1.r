@@ -3,6 +3,7 @@ require(plotly)
 require(dplyr)
 require(magrittr)
 
-makeVis <- function(data){
-  group_by(data, class) %>% summarize(Number = length(class))
+chart1 <- function(data){
+  data_byclass <- group_by(data, class) %>% summarize(NumberOfStudents = length(class))
+  return(hist(data_byclass));
 }
