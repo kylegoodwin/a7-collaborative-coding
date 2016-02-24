@@ -6,8 +6,14 @@ output: html_document
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 require(dplyr)
 
-#reads in Kyle's chart 1 file
+#reads in chart 1 file
 source("c:/info498f/homework/a7-collaborative-coding/scripts/chart1.r")
+
+#reads in chart 2 file
+source("c:/info498f/homework/a7-collaborative-coding/scripts/chart2.r")
+
+#reads in the summary file
+source("c:/info498f/homework/a7-collaborative-coding/scripts/summary.r")
 
 #reads in the survey data
 data <- read.csv("https://raw.githubusercontent.com/INFO-498F/a7-survey-data/master/intro_survey_data.csv")
@@ -15,4 +21,10 @@ data <- read.csv("https://raw.githubusercontent.com/INFO-498F/a7-survey-data/mas
 data <- rename(data, class = What.is.your.current.class.standing.)
 data <- rename(data, interested_in_info = Are.you.interested.in.applying.to.the.Informatics.major.)
 data <- rename(data, operating_system = What.operating.system.do.you.typically.use.)
+
+data_info <- info_function(data)
 ```
+
+The survey taken at the beginning of the class asked `r data_info[1]` questions of `r data_info[2]` students. These questions revealed that the average number of countries visited by students was `r data_info[3]`. Out of the `r data_info[2]` students, `r data_info[4]` of them use macs and `r data_info[5]` use windows based machines.
+
+`r chart2(data)`
