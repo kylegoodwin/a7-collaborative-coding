@@ -27,5 +27,8 @@ data_info <- info_function(data)
 
 The survey taken at the beginning of the class asked `r data_info[1]` questions of `r data_info[2]` students. These questions revealed that the average number of countries visited by students was `r data_info[3]`. Out of the `r data_info[2]` students, `r data_info[4]` of them use macs and `r data_info[5]` use windows based machines. Chart 1 shows the distribution of different class standings in the class. Chart 2 shows the average experience in various different parts of the class across the different operating systems.
 
-`r chart1(data)`
-`r chart2(data)`
+```{r, echo=FALSE} 
+#renders charts 1 and 2
+chart1(data)
+chart2(data)
+```
